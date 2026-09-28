@@ -1,5 +1,5 @@
-const { Company } = require('../models/sequelize');
-
+//se modifica Company
+const { Company, Contact } = require('../models/sequelize');
 async function getAll(req, res) {
   // TODO CHALLENGE 03: construir el filtro de Sequelize a partir de req.query.industry
   const where = {};
@@ -18,7 +18,13 @@ async function getAll(req, res) {
 
 async function getById(req, res) {
   // TODO CHALLENGE 05: la respuesta debe incluir los contactos de la compañía
-  const company = await Company.findByPk(req.params.id);
+ //con esto se hace un left join, se juntan la tabla principal de la izquierda (companies)
+ //y en cada fila se pegan los datos de la tabla derecha (contacts)
+ //entonces, regrsa una fila por cada contacto
+ //Sequelize agrupa esas filas metiendo los contactos
+ //  en un arreglo dentro de la propiedad contacts
+  const company = await Company.findByPk(req.params.id,{
+    include: { model: Contact, as: 'contacts' }});
 
   if (!company) {
     return res.status(404).json({ error: 'Company not found' });
