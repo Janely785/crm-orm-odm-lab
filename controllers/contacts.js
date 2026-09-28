@@ -32,7 +32,11 @@ async function update(req, res) {
   }
 
   // TODO CHALLENGE 07: actualizar el contacto con los datos recibidos en req.body
-
+//el awai es para el codigo que sigue corriendo antes de que la base de datos
+//responda y por eso regresa datos viejos o vacios, sino le pones await sigue
+    await contact.update(req.body, {
+    fields: ['firstName', 'lastName', 'email', 'phone', 'companyId']
+  });
   res.status(200).json(contact);
 }
 
