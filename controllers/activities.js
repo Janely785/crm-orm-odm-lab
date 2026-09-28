@@ -39,9 +39,17 @@ async function create(req, res) {
   res.status(201).json(activity);
 }
 
+
+//agrego el tercer argumento con dos cosas: 
+//con el new:true es dame el documento despues del cambio
+//y con runValidators: true le dice a moongose que valide los datos 
+//que le estas mandando contra las reglas del esquema antes de guardarlos
+// 
 async function update(req, res) {
-  // TODO CHALLENGE 08: revisar la operación de actualización
-  const activity = await Activity.findByIdAndUpdate(req.params.id, req.body);
+  const activity = await Activity.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
 
   if (!activity) {
     return res.status(404).json({ error: 'Activity not found' });
