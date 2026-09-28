@@ -22,7 +22,7 @@ async function getById(req, res) {
  //y en cada fila se pegan los datos de la tabla derecha (contacts)
  //entonces, regrsa una fila por cada contacto
  //Sequelize agrupa esas filas metiendo los contactos
- //  en un arreglo dentro de la propiedad contacts
+ //  en un arreglo dentro de la propiedad
   const company = await Company.findByPk(req.params.id,{
     include: { model: Contact, as: 'contacts' }});
 
