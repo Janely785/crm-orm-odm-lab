@@ -119,4 +119,4 @@ tests/setup.js borra y vuelve a crear las bases de datos de PostgreSQL y MongoDB
 **12. Tu experiencia.**
 El reto que más se me complicó fue el Reto 08, porque tuve problemas al actualizar las actividades en MongoDB. Para resolverlo, revisé el funcionamiento de finByIdAnUpdate()y corregí la actualización para que devolviera los datos nuevos y permitiera modificar la metadata. Un error de Jest que me ayudó fue "Expected: 'Llamada actualizada', Received: 'Llamada de seguimiento'", ya que me permitió identificar que la respuesta seguía mostrando la descripción anterior. También tuve un error al actualizar la metadata, lo que me ayudó a detectar que esos cambios tampoco se reflejaban en la respuesta.
 
-![Evidencia de todos los retos](image-1.png)
+![image de evidencia](image.png)
