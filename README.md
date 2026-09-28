@@ -118,3 +118,5 @@ Probar la respuesta de la API en vez de revisar qué método se usó por dentro 
 tests/setup.js borra y vuelve a crear las bases de datos de PostgreSQL y MongoDB antes de cada suite, y cierra las conexiones al terminar. Es muy importante porque si quedaran datos de una prueba anterior, otra prueba podría fallar o pasar dependiendo de ese estado previo, entonces al reiniciar los datos siempre se arranca del mismo punto y npm test da resultados consistentes.
 **12. Tu experiencia.**
 El reto que más se me complicó fue el Reto 08, porque tuve problemas al actualizar las actividades en MongoDB. Para resolverlo, revisé el funcionamiento de finByIdAnUpdate()y corregí la actualización para que devolviera los datos nuevos y permitiera modificar la metadata. Un error de Jest que me ayudó fue "Expected: 'Llamada actualizada', Received: 'Llamada de seguimiento'", ya que me permitió identificar que la respuesta seguía mostrando la descripción anterior. También tuve un error al actualizar la metadata, lo que me ayudó a detectar que esos cambios tampoco se reflejaban en la respuesta.
+
+![Evidencia de todos los retos](image-1.png)
